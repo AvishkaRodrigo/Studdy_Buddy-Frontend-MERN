@@ -9,6 +9,7 @@ const NotesForm = () => {
     const [course_id, setCourse_id] = useState('');
     const [description, setDescription] = useState('');
     const [error, setError] = useState(null);
+    const [emptyFields, setEmptyFields] = useState([]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -28,9 +29,11 @@ const NotesForm = () => {
 
         if (!response.ok){
             setError(json.error);
+            setEmptyFields(json.emptyFields);
         }
         if (response.ok){
             setError(null);
+            setEmptyFields([]);
             console.log('new note added', json);
             setHeading('');
             setCourse_id('');
@@ -48,30 +51,33 @@ const NotesForm = () => {
                 <h3>Add a new note</h3>
             </div>
             
-                <label>Note heading : </label>
+            <label>Note heading : </label>
             <div className="field">
                 <input
                     type="text"
                     onChange={(e) => setHeading(e.target.value)}
                     value={heading}
-                />
+                    className={emptyFields.includes('heading') ? 'requireErr' : '' }
+                    />
             </div>
 
-                <label>Course Code : </label>
+            <label>Course Code : </label>
             <div className="field">
                 <input
                     type="number"
                     onChange={(e) => setCourse_id(e.target.value)}
                     value={course_id}
-                />
+                    className={emptyFields.includes('course_id') ? 'requireErr' : '' }
+                    />
             </div>
 
-                <label>Description : </label>
+            <label>Description : </label>
             <div className="field">
                 <input
                     type="text"
                     onChange={(e) => setDescription(e.target.value)}
                     value={description}
+                    className={emptyFields.includes('description') ? 'requireErr' : '' }
                 />
             </div>
 
