@@ -1,9 +1,12 @@
-import { useEffect, useState } from "react";
+import { useEffect} from "react";
+import { useNotesContext } from "../hooks/useNotesContext";
+
 import NoteDetails from "../components/NoteDetails";
 import NotesForm from "../components/NotesForm";
 
 const Home = () => {
-    const  [notes, setNotes] = useState(null);
+
+    const {notes, dispatch} = useNotesContext()
 
     useEffect(() => {
         const fetchNotes = async () => {
@@ -12,14 +15,14 @@ const Home = () => {
             const json = await response.json();
 
             if (response.ok) {
-                setNotes(json);
+                dispatch({type : 'SET_NOTES', payload: json})
             }
         
         }
 
         fetchNotes();
 
-    }, [] )
+    }, [dispatch] )
 
     return ( 
         <div className="home">

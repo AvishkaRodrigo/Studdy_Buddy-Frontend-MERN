@@ -1,7 +1,10 @@
 import { useState } from "react";
+import {useNotesContext} from '../hooks/useNotesContext'
 
 const NotesForm = () => {
     
+    const {dispatch} = useNotesContext();
+
     const [heading, setHeading] = useState('');
     const [course_id, setCourse_id] = useState('');
     const [description, setDescription] = useState('');
@@ -32,6 +35,7 @@ const NotesForm = () => {
             setHeading('');
             setCourse_id('');
             setDescription('');
+            dispatch({type : 'CREATE_NOTE', payload : json})
         }
 
         
