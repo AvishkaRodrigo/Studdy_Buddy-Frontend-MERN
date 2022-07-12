@@ -1,5 +1,7 @@
 import { useNotesContext } from "../hooks/useNotesContext";
 
+import formatDistanceToNow from 'date-fns/formatDistanceToNow'
+
 const NoteDetails = ({note}) => {
     
     const {dispatch} = useNotesContext();
@@ -20,8 +22,8 @@ const NoteDetails = ({note}) => {
             <h4>{note.heading}</h4>
             <p><strong>Course Code : </strong>{note.course_id}</p>
             <p><strong>Description : </strong>{note.description}</p>
-            <p className="createdat">{note.createdAt}</p>
-            <span onClick={handleClick}>Delete</span>
+            <p className="createdat">{formatDistanceToNow(new Date(note.createdAt), {addSuffix : true})}</p>
+            <span className="material-symbols-outlined" onClick={handleClick}>Delete</span>
         </div>
      );
 }

@@ -71,7 +71,8 @@ header a {
 
 .createdat{
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
+
 }
 
 .note-details span {
@@ -79,10 +80,10 @@ header a {
   top: 20px;
   right: 20px;
   cursor: pointer;
-  background:rgb(255, 255, 255);
+  background: var(--primary);
   padding: 6px;
   border-radius: 50%;
-  color: var(--dark);
+  color: var(--light);
 }
 
 /* form */
@@ -130,4 +131,8 @@ form button {
   color: var(--danger);
   border-radius: 4px;
   margin: 20px 10px;
+}
+
+input.requireErr {
+  border : 1px solid var(--danger);
 }
