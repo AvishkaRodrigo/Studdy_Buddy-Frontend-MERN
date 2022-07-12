@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Roboto:wght@300&display=swap');
+
+:root {
+  --primary :#b005fa;
+  --dark : #242424;
+  --light : #fff;
+  --light2 : #f0f0f0;
+  --danger : rgb(255, 0, 60);
+
+}
+
+body {
+  background: var(--light2);
+  margin : 0;
+  font-family: "Poppins";
+}
+
+header{
+  background: var(--primary);
+}
+
+header .container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  
+}
+
+header a {
+  text-decoration: none;
+  color: var(--light);
+}
+
+.pages {
+  max-width: 1400px;
+  padding: 20px;
+  margin: 0 auto;
+}
+
+/* homepage */
+.home {
+  display : grid;
+  grid-template-columns: 3fr 1fr;
+  gap : 10px;
+}
+
+.note-details {
+  background  :#debcee;
+  border-radius: 4px;
+  margin: 20px auto;
+  padding : 20px;
+  margin-right: 20px;
+  position : relative;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.05);
+}
+
+.note-details h4 {
+  margin : 0 0 10px 0;
+  font-size: 1.2em;
+  color: var(--primary);
+}
+
+.note-details p{
+  margin: 0;
+  font-size: 0.9em;
+  color: #444444;
+}
+
+.note-details span {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+  background:rgb(255, 255, 255);
+  padding: 6px;
+  border-radius: 50%;
+  color: var(--dark);
+}
+
+/* form */
+.create {
+ background: #d381f7;
+ border-radius: 4px;
+ height: 550px;
+}
+
+label, input {
+  display : block;
+  padding-left: 10px;
+}
+
+.field {
+  padding-left: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+input {
+  padding: 10px;
+  margin-top : 10px;
+  margin-bottom: 20px;
+  width: 90%;
+  border: 1px solid #ddd;
+  border-radius : 4px;
+  box-sizing: border-box;
+}
+
+form button {
+  background: var(--primary);
+  border: 0;
+  color: #fff;
+  padding: 10px;
+  font-family: 'Poppins';
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.error {
+  padding: 10px;
+  background: #ffbfd4;
+  border: 1px solid var(--danger);
+  color: var(--danger);
+  border-radius: 4px;
+  margin: 20px 10px;
+}
